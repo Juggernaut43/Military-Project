@@ -29,20 +29,21 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="60"/>
             <RowDefinition/>
-            <RowDefinition Height="340"/>
+            <RowDefinition Height="300"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3" Background="#8576FF" >
-            <TextBlock Text="Hey, glad to welcome you in my application" VerticalAlignment="Center" Foreground="White" FontSize="24" FontWeight="Bold" 
+        <Grid Grid.ColumnSpan="4" Background="#6228fc" >
+            <TextBlock Text="Hey, nice to sea you in my application" VerticalAlignment="Center" Foreground="White" FontSize="24" FontWeight="Bold" 
                        Margin="50,0,0,0" FontStyle="Oblique"></TextBlock>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="3">
+        <Grid Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4">
             <Border Background="Black" Opacity="0.7">
                 
             </Border>
@@ -51,12 +52,11 @@
             </Grid.Background>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+        <Grid Grid.Row="1" Grid.ColumnSpan="4">
             <Border Padding="0,0,70,0" >
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                     <Image Source="C:\Users\misha\source\repos\Military-Project\Military-Project/Images/URole-19-04-2024 (2).png" Margin="0,0,20,0"/>
-
 
                     <Button Content="Roles" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0">
                         <Button.Style>
@@ -137,8 +137,6 @@
                         </Button.Resources>
                     </Button>
 
-
-
                     <Button Content="Sign up" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -191,18 +189,16 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-
+                    
                 </StackPanel>
-
             </Border>
-
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="0" >
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
-                    <TextBlock FontSize="30" Text="Roles" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
-                    <TextBlock Text="text" FontSize="24" Foreground="White" Padding="20,0"></TextBlock>
+                    <TextBlock FontSize="24" Text="Roles" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
+                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
                 </StackPanel>
             </Border>    
         </Grid>
@@ -210,8 +206,8 @@
         <Grid Grid.Row="3" Grid.Column="1">
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
-                    <TextBlock FontSize="30" Text="Courses" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
-                    <TextBlock Text="text" FontSize="24" Foreground="White" Padding="20,0"></TextBlock>
+                    <TextBlock FontSize="24" Text="Courses" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
+                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
                 </StackPanel>
             </Border>
         </Grid>
@@ -219,8 +215,17 @@
         <Grid Grid.Row="3" Grid.Column="2">
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
-                    <TextBlock FontSize="30" Text="Role Selection" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
-                    <TextBlock Text="text" FontSize="24" Foreground="White" Padding="20,0"></TextBlock>
+                    <TextBlock FontSize="24" Text="Role Selection" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
+                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="3">
+            <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
+                <StackPanel Margin="15">
+                    <TextBlock FontSize="24" Text="Profile" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
+                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
                 </StackPanel>
             </Border>
         </Grid>
