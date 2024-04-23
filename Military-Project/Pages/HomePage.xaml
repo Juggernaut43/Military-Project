@@ -201,15 +201,29 @@
         <Grid Grid.Row="3" Grid.Column="0" >
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
-                    <TextBlock FontSize="30" Text="Roles" Foreground="White" TextAlignment="Center"/>
-                    <TextBlock></TextBlock>
+                    <TextBlock FontSize="30" Text="Roles" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
+                    <TextBlock Text="text" FontSize="24" Foreground="White" Padding="20,0"></TextBlock>
                 </StackPanel>
             </Border>    
         </Grid>
         
-        <Grid Grid.Row="3" Grid.Column="1"></Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
+                <StackPanel Margin="15">
+                    <TextBlock FontSize="30" Text="Courses" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
+                    <TextBlock Text="text" FontSize="24" Foreground="White" Padding="20,0"></TextBlock>
+                </StackPanel>
+            </Border>
+        </Grid>
         
-        <Grid Grid.Row="3" Grid.Column="2"></Grid>
+        <Grid Grid.Row="3" Grid.Column="2">
+            <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
+                <StackPanel Margin="15">
+                    <TextBlock FontSize="30" Text="Role Selection" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
+                    <TextBlock Text="text" FontSize="24" Foreground="White" Padding="20,0"></TextBlock>
+                </StackPanel>
+            </Border>
+        </Grid>
 
     </Grid>
 </Window>
