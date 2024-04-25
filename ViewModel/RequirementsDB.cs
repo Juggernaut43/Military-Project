@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ViewModel
 {
-    internal class RequirenentsDB : BaseDB
+    internal class RequirementsDB : BaseDB
     {
 
-        public RequirenentsDB() : base("Requirements")
+        public RequirementsDB() : base("Requirements")
         {
 
         }

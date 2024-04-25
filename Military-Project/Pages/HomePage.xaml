@@ -18,6 +18,15 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="16" />
         </Style>
+        <Style TargetType="TextBlock" x:Key="InfoBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
 
     </Window.Resources>
 
@@ -29,7 +38,7 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="60"/>
             <RowDefinition/>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="270"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -110,7 +119,33 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Content="Role Selection" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="0,0,290,0">
+                    <Button Content="Role Selection" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#6228fc" Padding="20,5,20,5">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#8576FF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="Profile" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="0,0,210,0">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -198,7 +233,7 @@
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
                     <TextBlock FontSize="24" Text="Roles" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
-                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
+                    <TextBlock  Style="{StaticResource InfoBlock}"> Here you willl find information about roles in rhe army and their requirements.​</TextBlock>
                 </StackPanel>
             </Border>    
         </Grid>
@@ -207,7 +242,7 @@
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
                     <TextBlock FontSize="24" Text="Courses" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
-                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
+                    <TextBlock Style="{StaticResource InfoBlock}">Preparatory courses for better adaptation in different areas of the army.</TextBlock>
                 </StackPanel>
             </Border>
         </Grid>
@@ -216,7 +251,7 @@
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
                     <TextBlock FontSize="24" Text="Role Selection" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
-                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
+                    <TextBlock Style="{StaticResource InfoBlock}">These function will help you choose a suitable role in army that suits your chacteristics.</TextBlock>
                 </StackPanel>
             </Border>
         </Grid>
@@ -225,7 +260,7 @@
             <Border CornerRadius="10" Background="Black" Opacity="0.6" Margin="10">
                 <StackPanel Margin="15">
                     <TextBlock FontSize="24" Text="Profile" Foreground="White" TextAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
-                    <TextBlock Text="text" FontSize="18" Foreground="White" Padding="10,0"></TextBlock>
+                    <TextBlock Style="{StaticResource InfoBlock}">Here are your physical data (your strength, illness, height, ets.) as well as intelligence and metal abilities.​</TextBlock>
                 </StackPanel>
             </Border>
         </Grid>

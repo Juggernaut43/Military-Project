@@ -6,6 +6,24 @@
         xmlns:local="clr-namespace:Military_Project.Pages"
         mc:Ignorable="d"
         Title="LoginPage" Height="720" Width="1080">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="text">
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="MaxWidth" Value="590"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#9772FB"/>
+            <Setter Property="MaxWidth" Value="600"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+    </Window.Resources>
+
+
     <Grid Background="gray">
         <Border MinWidth="700" Background="White" Margin="15" VerticalAlignment="Center"
             MaxWidth="800" Padding="30" CornerRadius="30">
@@ -25,20 +43,14 @@
                     </TextBlock.Effect>
                 </TextBlock>
 
-                <TextBlock Text="first name" FontStyle="Italic" FontWeight="Bold"  FontSize="25" MaxWidth="590"/>
-                <TextBox  FontSize="20" Padding="5" BorderBrush="#9772FB" MaxWidth="600" Margin="0,0,0,10"/>
+                <TextBlock Text="id" Style="{StaticResource text}"/>
+                <TextBox  Style="{StaticResource label}"/>
 
-                <TextBlock Text="last name" FontStyle="Italic" FontWeight="Bold" FontSize="25" MaxWidth="590"/>
-                <TextBox  FontSize="20" Padding="5" BorderBrush="#9772FB" MaxWidth="600" Margin="0,0,0,10"/>
-
-                <TextBlock Text="birthday" FontStyle="Italic" FontWeight="Bold" FontSize="25" MaxWidth="590"/>
-                <TextBox  FontSize="20" Padding="5" BorderBrush="#9772FB" MaxWidth="600" Margin="0,0,0,10"/>
-
-                <TextBlock Text="password" FontStyle="Italic" FontWeight="Bold" FontSize="25" MaxWidth="590"/>
-                <TextBox  FontSize="20" Padding="5" BorderBrush="#9772FB" MaxWidth="600" Margin="0,0,0,10"/>
+                <TextBlock Text="password" Style="{StaticResource text}"/>
+                <TextBox  Style="{StaticResource label}"/>
 
                 <Button HorizontalAlignment="Center" Content="sign in" FontWeight="Bold" FontSize="35" 
-                    MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2">
+                    MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,0">
                     <Button.BorderBrush >
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
                             <GradientStop Color="#6228fc" Offset="0" />
@@ -65,7 +77,7 @@
 
                 </Button>
                 <Button MaxWidth="250" MinHeight="20" Content="I don't have an account to sign in" FontSize="14" 
-                        Margin="0,10,0,0" HorizontalAlignment="Center" >
+                        Margin="0,10,0,0" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent">
                 </Button>
             </StackPanel>
         </Border>
