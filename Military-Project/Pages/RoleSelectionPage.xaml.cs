@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace Military_Project.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для CoursesPage.xaml
+    /// Логика взаимодействия для RoleSelectionPage.xaml
     /// </summary>
-    public partial class CoursesPage : Window
+    public partial class RoleSelectionPage : Window
     {
-        public CoursesPage()
+        public RoleSelectionPage()
         {
             InitializeComponent();
-            //RoleViewModel vm = new RoleViewModel();
-            //rolelist list = vm.getallroles();
         }
     }
 }

@@ -17,11 +17,11 @@ namespace ViewModel
         }
 
 
-        public Role SelectAll()
+        public RolesList SelectAll()
         {
             _command.CommandText = string.Format("SELECT * from {0}", _tableName);
             RolesList lst = Select();
-            return lst.FirstOrDefault();
+            return lst;
         }
 
 
@@ -38,7 +38,7 @@ namespace ViewModel
                 {
                     role = new Role();
                     role.Id = (int)_reader["id"];
-                    RequirenentsDB rdb = new RequirenentsDB();
+                    RequirementsDB rdb = new RequirementsDB();
                     role.Requirements = rdb.SelectByRoleID(role.Id);
                     role.Name = (string)_reader["command"].ToString();
                     role.Description = (string)_reader["description"].ToString();

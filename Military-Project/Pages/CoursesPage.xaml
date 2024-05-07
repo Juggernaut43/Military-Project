@@ -28,14 +28,14 @@
                     </TextBlock>
                     <DataGrid>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Role" Width="200" />
+                            <DataGridTextColumn Header="Name" Width="100" />
                             <DataGridTextColumn Header="Description" Width="*"/>
-                            <DataGridTextColumn Header="Requirements" Width="200"/>
+                            <DataGridTextColumn Header="Price" Width="50"/>
+                            <DataGridTextColumn Header="Date" Width="100"/>
+                            <DataGridTextColumn Header="Url" Width="300"/>
                         </DataGrid.Columns>
                         
                     </DataGrid>
-                    
-                    
 
 
                 </StackPanel>
