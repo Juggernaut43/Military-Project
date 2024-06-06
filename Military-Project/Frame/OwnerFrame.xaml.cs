@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Military_Project.Pages
+namespace Military_Project.Frame
 {
     /// <summary>
-    /// Логика взаимодействия для HomePage.xaml
+    /// Логика взаимодействия для OwnerFrame.xaml
     /// </summary>
-    public partial class HomePage : Window
+    public partial class OwnerFrame : Page
     {
-        public HomePage()
+        public OwnerFrame()
         {
             InitializeComponent();
-        }
-
-        private void Grid_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -27,7 +27,6 @@ namespace ViewModel
             return lst.FirstOrDefault();
         }
 
-
         public UsersList Select()
         {
             UsersList list = new UsersList();
@@ -43,7 +42,7 @@ namespace ViewModel
                     user.Id = (int)_reader["id"];
                     user.Name = (string)_reader["firstName"].ToString();
                     user.LastName = (string)_reader["lastName"];
-                    user.Birthday = Convert.ToDateTime(_reader["birthDate"]);
+                    user.Birthday = (string)_reader["birthDate"];
                     user.Password = (string)_reader["password"];
                     user.IsAdmin = (bool)_reader["isAdmin"];
                     list.Add(user);
@@ -69,10 +68,11 @@ namespace ViewModel
                 _command.Connection = _connection;
                 _connection.Open();
                 _command.CommandText = $"INSERT INTO {_tableName}(firstName,lastName,birthDate," +
-                    "password, isAdmin" + "VALUES(@firstName,@lastName,@password,@isAdmin)";
+                    "password, isAdmin) " + "VALUES(@firstName,@lastName,@birthDate,@password,@isAdmin)";
 
                 _command.Parameters.AddWithValue("@firstName", user.Name);
                 _command.Parameters.AddWithValue("@lastName", user.LastName);
+                _command.Parameters.AddWithValue("@birthDate", user.Birthday);
                 _command.Parameters.AddWithValue("@password", user.Password);
                 _command.Parameters.AddWithValue("@isAdmin", user.IsAdmin);
 

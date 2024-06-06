@@ -58,7 +58,13 @@ namespace ViewModel
                 if (_connection.State == System.Data.ConnectionState.Open)
                     _connection.Close();
             }
-            return list;
+            return list;           
+        }
+        public RolesList RolesSelection(int dapar, int profile, int command, int teamWork, int attentions, int informationProcession)
+        {
+            _command.CommandText = $"SELECT * from {_tableName} where minDapar > {dapar} and minProfile> {profile}";
+            RolesList lst = Select();
+            return lst;
         }
     }
 }

@@ -67,7 +67,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                     <Image Source="C:\Users\misha\source\repos\Military-Project\Military-Project/Images/URole-19-04-2024 (2).png" Margin="0,0,20,0"/>
 
-                    <Button Content="Roles" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0">
+                    <Button Content="Roles" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0" Click="Button_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -82,7 +82,8 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8576FF"/>
+                                        <Setter Property="Background" Value="#6228fc"/>
+                                        <Setter Property="Opacity" Value="0.9"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -108,7 +109,8 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8576FF"/>
+                                        <Setter Property="Background" Value="#6228fc"/>
+                                        <Setter Property="Opacity" Value="0.9"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -134,7 +136,8 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8576FF"/>
+                                        <Setter Property="Background" Value="#6228fc"/>
+                                        <Setter Property="Opacity" Value="0.9"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -160,7 +163,8 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8576FF"/>
+                                        <Setter Property="Background" Value="#6228fc"/>
+                                        <Setter Property="Opacity" Value="0.9"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -187,7 +191,8 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8576FF"/>
+                                        <Setter Property="Background" Value="#6228fc"/>
+                                        <Setter Property="Opacity" Value="0.9"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -213,7 +218,8 @@
                                 </Setter>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#8576FF"/>
+                                        <Setter Property="Background" Value="#6228fc"/>
+                                        <Setter Property="Opacity" Value="0.9"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -265,5 +271,9 @@
             </Border>
         </Grid>
 
+        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="4">
+            
+        </Grid>
+        
     </Grid>
 </Window>
