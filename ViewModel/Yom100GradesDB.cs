@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ViewModel
 {
-    internal class Yom100GradesDB : BaseDB
+    public class Yom100GradesDB : BaseDB
     {
         public Yom100GradesDB() : base("Yom100Grades")
         {

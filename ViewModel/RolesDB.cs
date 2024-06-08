@@ -15,16 +15,12 @@ namespace ViewModel
 
 
         }
-
-
         public RolesList SelectAll()
         {
             _command.CommandText = string.Format("SELECT * from {0}", _tableName);
             RolesList lst = Select();
             return lst;
         }
-
-
         //public RolesList Select()
         //{
         //    RolesList list = new RolesList();

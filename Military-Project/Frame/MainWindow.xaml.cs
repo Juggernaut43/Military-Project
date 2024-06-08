@@ -23,6 +23,17 @@ namespace Military_Project.Frame
     {
         public MainWindow()
         {
+            this.RolesButton.Visibility = Visibility.Collapsed;
+            this.CoursesBtn.Visibility = Visibility.Collapsed;
+            this.RoleSelectionBtn.Visibility = Visibility.Collapsed;
+            this.ProfileBtn.Visibility = Visibility.Collapsed;
+
+            this.LogoutBtn.Visibility = Visibility.Collapsed;
+            this.SetingsBtn.Visibility = Visibility.Collapsed;
+
+            this.Sign_upBtn.Visibility = Visibility.Visible;
+            this.Sign_inBtn.Visibility = Visibility.Visible;
+            this.SpaceBlock.Width = 650;
             InitializeComponent();
         }
 

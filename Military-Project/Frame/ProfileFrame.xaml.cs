@@ -22,6 +22,7 @@ namespace Military_Project.Frame
     {
         public ProfileFrame()
         {
+            //ShowGrades();
             InitializeComponent();
         }
     }

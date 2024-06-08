@@ -27,7 +27,7 @@ namespace Military_Project.Frame
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
