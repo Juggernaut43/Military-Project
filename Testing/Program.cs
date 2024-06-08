@@ -11,9 +11,9 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            var db = new UsersDB();
+            var db = new RolesDB();
             var user = db.SelectALL();
-            int x = 2;
+            
         }
     }
 }

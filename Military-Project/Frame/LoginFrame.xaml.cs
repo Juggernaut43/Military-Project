@@ -36,27 +36,26 @@ namespace Military_Project.Frame
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             UsersDB db = new UsersDB();
-            var user = db.SelectByID(0);//idttbox.text);
+            var user = db.SelectByID(int.Parse(id.Text));
             if (user != null)
             {
-                if (user.Password =="") //PasswordBox.text)
+                if (user.Password == password.Text) 
                 {
                     Sesion.User = user;
                     if (LoginEvent != null)
                     {
                         LoginEvent(this, e);
                     }
-
                 }
-
                 else 
                 { 
-                    //message uer
+                    //exeption message 
                 }
             }
+
         }
     }
 }

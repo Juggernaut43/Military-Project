@@ -31,9 +31,9 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="40" Color="#9772FB" ShadowDepth="0"/>
             </Border.Effect>
-            
+
             <StackPanel>
-                <TextBlock Text="Application Settings" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold" Margin="0,0,0,20">
+                <TextBlock Text="Application Settings" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold" Margin="0,0,0,40">
                     <TextBlock.Foreground>
                         <LinearGradientBrush>
                             <GradientStop Color="#8576FF" Offset="0.25" />
@@ -45,12 +45,39 @@
                     </TextBlock.Effect>
                 </TextBlock>
 
-                <Grid>
+                <TextBlock Text="Users" HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Margin="0,0,0,10">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#8576FF" Offset="0.25" />
+                            <GradientStop Color="#1C1678" Offset="1.3" />
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#1C1678"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
+                        <ColumnDefinition Width="16*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
+
+
+                    <ScrollViewer Grid.Column="1">
+                        <DataGrid  Name="UserDataGrid" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Width="2*" Binding="{Binding Path=Id}" />
+                                <DataGridTextColumn Header="First Name" Width="3*" Binding="{Binding Path=Name}"/>
+                                <DataGridTextColumn Header="Last Name" Width="3*"  Binding="{Binding Path=LastName}"/>
+                                <DataGridTextColumn Header="Password" Width="3*" Binding="{Binding Path=Password}"/>
+                                <DataGridTextColumn Header="Birthday" Width="2*" Binding="{Binding Path=Birthday}"/>
+                                <DataGridTextColumn Header="Admin Root" Width="2*" Binding="{Binding Path=IsAdmin}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+
                 </Grid>
             </StackPanel>
         </Border>

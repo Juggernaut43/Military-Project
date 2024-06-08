@@ -58,8 +58,8 @@
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
-            <TextBlock Text="Hey, nice to sea you in my application" Foreground="White" FontSize="24" FontWeight="Bold" 
-                   Margin="50,25,0,0" FontStyle="Oblique"></TextBlock>
+            <TextBlock x:Name="WelcomeUserName" Text="Hey, nice to sea you in my application" Foreground="White" FontSize="24" FontWeight="Bold" 
+                   Margin="50,25,0,65" FontStyle="Oblique" Height="50"></TextBlock>
         </Grid>
 
 
@@ -73,7 +73,7 @@
                         <Button x:Name="HomeBtn" Background="Transparent" Margin="0" BorderBrush="Transparent" Click="HomeBtn_Click">
                             <Image Source="C:\Users\misha\source\repos\Military-Project\Military-Project/Images/URole-19-04-2024 (2).png" Margin="0,0,10,0"/>
                         </Button>
-                        <Button x:Name="RolesButton" Content="Roles" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0" Click="Button_Click">
+                        <Button x:Name="RolesButton" Content="Roles" Visibility="Collapsed" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0" Click="RolesBtn_Click">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>
@@ -100,7 +100,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Courses" x:Name="CoursesBtn" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0" Click="CoursesBtn_Click">
+                        <Button Content="Courses" x:Name="CoursesBtn" Visibility="Collapsed" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0" Click="CoursesBtn_Click">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>
@@ -127,7 +127,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Role Selection" x:Name="RoleSelectionBtn" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0" Click="RoleSelectionBtn_Click">
+                        <Button Content="Role Selection" x:Name="RoleSelectionBtn" Visibility="Collapsed" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="2,0" Click="RoleSelectionBtn_Click">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>
@@ -154,7 +154,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Profile" x:Name="ProfileBtn" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="0,0,0,0" Click="ProfileBtn_Click">
+                        <Button Content="Profile" x:Name="ProfileBtn" Visibility="Collapsed" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="0,0,0,0" Click="ProfileBtn_Click">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>
@@ -184,7 +184,7 @@
                     
                     </StackPanel>
 
-                    <Border x:Name="SpaceBlock" Width="250">
+                    <Border x:Name="SpaceBlock" Width="650">
                         
                     </Border>
 
@@ -244,7 +244,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Logout" x:Name="LogoutBtn" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0" Visibility="Collapsed">
+                        <Button Content="Logout" x:Name="LogoutBtn" Click="LogoutBtn_Click" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0" Visibility="Collapsed">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>
@@ -271,7 +271,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Settings" x:Name="SetingsBtn" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0" Visibility="Collapsed">
+                        <Button Content="Settings" x:Name="SetingsBtn" Click="SetingsBtn_Click" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0" Visibility="Collapsed">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>

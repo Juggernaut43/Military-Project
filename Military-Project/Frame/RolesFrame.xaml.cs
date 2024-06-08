@@ -33,6 +33,8 @@ namespace Military_Project.Frame
         {
             RolesDB db = new RolesDB();
             this.roles = db.SelectAll();
+            //this.roles = new RolesList();
+            //roles.Add(new Role { Description= "Thi i a role", Id})
             InitializeComponent();
 
         }

@@ -45,13 +45,13 @@
                 </TextBlock>
 
                 <TextBlock Text="id" Style="{StaticResource text}"/>
-                <TextBox  Style="{StaticResource label}"/>
+                <TextBox x:Name="id" Style="{StaticResource label}"/>
 
                 <TextBlock Text="password" Style="{StaticResource text}"/>
-                <TextBox  Style="{StaticResource label}"/>
+                <TextBox x:Name="password" Style="{StaticResource label}"/>
 
                 <Button HorizontalAlignment="Center" Content="sign in" FontWeight="Bold" FontSize="35" 
-                MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,0" Click="Button_Click_1">
+                        MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,0" Click="LoginBtn_Click">
                     <Button.BorderBrush >
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
                             <GradientStop Color="#6228fc" Offset="0" />

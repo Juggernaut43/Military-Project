@@ -26,33 +26,7 @@ namespace Military_Project.Frame
             InitializeComponent();
         }
 
-
-        private void MenuVisability()
-        {
-
-            //show all buttons in menu
-
-            if (Sesion.User != null)
-            {
-                //show logout button
-                LogoutBtn.Visibility = Visibility.Visible;
-                if (Sesion.User.IsAdmin)
-                {
-                    SetingsBtn.Visibility = Visibility.Visible;
-
-                }
-            }
-            else
-            {
-                //show loginbtn
-                //show sign up
-                //Fix space
-                //other hide
-
-            }
-
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RolesBtn_Click(object sender, RoutedEventArgs e)
         {
             this.myFrame.Navigate(new RolesFrame());
         }
@@ -72,34 +46,81 @@ namespace Military_Project.Frame
         {
             this.myFrame.Navigate(new ProfileFrame());
         }
-        //----------------------------------------
+        private void SetingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.myFrame.Navigate(new OwnerFrame());
+        }
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.RolesButton.Visibility = Visibility.Collapsed;
+            this.CoursesBtn.Visibility = Visibility.Collapsed;
+            this.RoleSelectionBtn.Visibility = Visibility.Collapsed;
+            this.ProfileBtn.Visibility = Visibility.Collapsed;
+
+            this.LogoutBtn.Visibility = Visibility.Collapsed;
+            this.SetingsBtn.Visibility = Visibility.Collapsed;
+            
+            this.Sign_upBtn.Visibility = Visibility.Visible;
+            this.Sign_inBtn.Visibility = Visibility.Visible;
+            this.SpaceBlock.Width = 650;
+            this.WelcomeUserName.Text = $"Hey, nice to sea you in my application";
+            this.myFrame.Navigate(new HomeFrame());
+
+        }
+        //---------------------------------------------------------------------------
         private void Sign_upBtn_Click(object sender, RoutedEventArgs e)
         {
             var p = new RegistrationFrame();
             p.GoToLoginEvent += new EventHandler(MoveToLoginPage);
-            p.RegistrationEvent += new EventHandler(UpdateMenu);
+            p.RegistrationEvent += new EventHandler(LoginHappend);
             this.myFrame.Navigate(p);
         }
         private void MoveToLoginPage(object? sender, EventArgs e)
         {
-            this.myFrame.Navigate(new LoginFrame());
+            var p = new LoginFrame();
+            p.GoToRegistrationEvent += new EventHandler(MoveToRegistrationPage);
+            p.LoginEvent += new EventHandler(LoginHappend);
+            this.myFrame.Navigate(p);
         }
 
         private void Sign_inBtn_Click(object sender, RoutedEventArgs e)
         {
             var p = new LoginFrame();
             p.GoToRegistrationEvent += new EventHandler(MoveToRegistrationPage);
-            p.LoginEvent += new EventHandler(UpdateMenu);
+            p.LoginEvent += new EventHandler(LoginHappend);
             this.myFrame.Navigate(p);
         }
-        private void UpdateMenu(object? sender, EventArgs e)
+        private void LoginHappend(object? sender, EventArgs e)
         {
-            MenuVisability();
+            this.myFrame.Navigate(new HomeFrame());
+            this.WelcomeUserName.Text = $"Welcome {Sesion.User.Name}";
+
+            this.RolesButton.Visibility = Visibility.Visible;
+            this.CoursesBtn.Visibility = Visibility.Visible;
+            this.RoleSelectionBtn.Visibility = Visibility.Visible;
+            this.ProfileBtn.Visibility = Visibility.Visible;
+
+            this.Sign_upBtn.Visibility = Visibility.Collapsed;
+            this.Sign_inBtn.Visibility = Visibility.Collapsed;
+            this.LogoutBtn.Visibility = Visibility.Visible;
+            this.SpaceBlock.Width = 340;
+            if (Sesion.User.IsAdmin)
+            {
+                this.SetingsBtn.Visibility = Visibility.Visible;
+                this.SpaceBlock.Width = 250;
+            }
         }
         
         private void MoveToRegistrationPage(object? sender, EventArgs e)
         {
-            this.myFrame.Navigate(new RegistrationFrame());
+            var p = new RegistrationFrame();
+            p.GoToLoginEvent += new EventHandler(MoveToLoginPage);
+            p.RegistrationEvent += new EventHandler(LoginHappend);
+            this.myFrame.Navigate(p);
         }
+
+        
+
+        
     }
 }

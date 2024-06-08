@@ -69,6 +69,7 @@
     <Compile Include="CoursesDB.cs" />
     <Compile Include="ProfileDB.cs" />
     <Compile Include="RequirementsDB.cs" />
+    <Compile Include="RoleList.cs" />
     <Compile Include="RolesDB.cs" />
     <Compile Include="UsersDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -38,7 +38,7 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Dapar" Margin="0,0,10,0" Style="{StaticResource label}"/>
-                    <ComboBox>
+                    <ComboBox x:Name="insertDapar">
                         <ComboBoxItem Content="10"/>
                         <ComboBoxItem Content="20"/>
                         <ComboBoxItem Content="30"/>
@@ -50,7 +50,7 @@
                         <ComboBoxItem Content="90"/>
                     </ComboBox>
                     <TextBlock Text="Profile" Margin="50,0,10,0" Style="{StaticResource label}"/>
-                    <ComboBox>
+                    <ComboBox x:Name="insertProfile">
                         <ComboBoxItem Content="21"/>
                         <ComboBoxItem Content="24"/>
                         <ComboBoxItem Content="25"/>
@@ -65,7 +65,7 @@
                     <TextBlock Text="yom ha-100:" HorizontalAlignment="Center" FontSize="25" Margin="0,0,0,20" Style="{StaticResource label}"/>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,50">
                         <TextBlock Text="command" Margin="0,0,10,0" Style="{StaticResource label}"/>
-                        <ComboBox>
+                        <ComboBox x:Name="insertCommand">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>
@@ -73,7 +73,7 @@
                             <ComboBoxItem Content="5"/>
                         </ComboBox>
                         <TextBlock Text="teamwork" Margin="50,0,10,0" Style="{StaticResource label}"/>
-                        <ComboBox>
+                        <ComboBox x:Name="insertTeamWork">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>
@@ -81,7 +81,7 @@
                             <ComboBoxItem Content="5"/>
                         </ComboBox>
                         <TextBlock Text="attention" Margin="50,0,10,0" Style="{StaticResource label}"/>
-                        <ComboBox>
+                        <ComboBox x:Name="insertAttention">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>
@@ -89,7 +89,7 @@
                             <ComboBoxItem Content="5"/>
                         </ComboBox>
                         <TextBlock Text="information proceion" Margin="50,0,10,0" Style="{StaticResource label}"/>
-                        <ComboBox>
+                        <ComboBox x:Name="insertInformationProcession">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>
@@ -101,7 +101,7 @@
                 </StackPanel>
 
                 <Button HorizontalAlignment="Center" Content="Selection" FontWeight="Bold" FontSize="35" 
-                    MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,0">
+                    MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,0" Click="Button_Click">
                     <Button.BorderBrush >
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
                             <GradientStop Color="#6228fc" Offset="0" />

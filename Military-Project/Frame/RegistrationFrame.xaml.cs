@@ -50,7 +50,7 @@ namespace Military_Project.Frame
                     u.LastName = lastName.Text;
                     u.Password = password.Text;
                     u.Id = int.Parse(id.Text);
-                    u.Birthday = birthday.DisplayDate;
+                    u.Birthday = birthday.Text;
 
                     db.InsertUser(u);
                 }

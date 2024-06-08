@@ -67,9 +67,10 @@ namespace ViewModel
             {
                 _command.Connection = _connection;
                 _connection.Open();
-                _command.CommandText = $"INSERT INTO {_tableName}(firstName,lastName,birthDate," +
-                    "password, isAdmin) " + "VALUES(@firstName,@lastName,@birthDate,@password,@isAdmin)";
+                _command.CommandText = $"INSERT INTO {_tableName}(id,firstName,lastName,birthDate," +
+                    "password, isAdmin) " + "VALUES(@id,@firstName,@lastName,@birthDate,@password,@isAdmin)";
 
+                _command.Parameters.AddWithValue("@id", user.Id);
                 _command.Parameters.AddWithValue("@firstName", user.Name);
                 _command.Parameters.AddWithValue("@lastName", user.LastName);
                 _command.Parameters.AddWithValue("@birthDate", user.Birthday);
