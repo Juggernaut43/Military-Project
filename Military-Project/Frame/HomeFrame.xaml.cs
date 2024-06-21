@@ -24,5 +24,9 @@ namespace Military_Project.Frame
         {
             InitializeComponent();
         }
+        
+
     }
+    
+    
 }

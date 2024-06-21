@@ -81,7 +81,7 @@
                             <ComboBoxItem Content="5"/>
                         </ComboBox>
                         <TextBlock Text="attention" Margin="50,0,10,0" Style="{StaticResource label}"/>
-                        <ComboBox x:Name="insertAttention">
+                        <ComboBox x:Name="insertAttentions">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>

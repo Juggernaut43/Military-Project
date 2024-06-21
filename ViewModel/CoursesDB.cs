@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,35 @@ namespace ViewModel
             return lst;
         }
 
+        public void InsertCourse(Course course)
+        {
+            try
+            {
+                _command.Connection = _connection;
+                _connection.Open();
+                _command.CommandText = $"INSERT INTO {_tableName}(name,description,price,date,url) " +
+                                       "VALUES(@name,@description,@price,@date,@url)";
+
+
+                _command.Parameters.AddWithValue("@name", course.Name);
+                _command.Parameters.AddWithValue("@description", course.Description);
+                _command.Parameters.AddWithValue("@price", course.Price);
+                _command.Parameters.AddWithValue("@date", course.Date);
+                _command.Parameters.AddWithValue("@url", course.Url);
+
+
+                _command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (_connection.State == System.Data.ConnectionState.Open)
+                    _connection.Close();
+            }
+        }
 
         public CoursesList Select()
         {
@@ -46,11 +76,12 @@ namespace ViewModel
                 while (_reader.Read())
                 {
                     course = new Course();
-                    course.Id = Convert.ToInt32(_reader["Id"]);
+                    course.Id = Convert.ToInt32(_reader["id"]);
                     course.Name = _reader["name"].ToString();
-                    course.Description = _reader["descriptions"].ToString();
+                    course.Description = _reader["description"].ToString();
                     course.Price = Convert.ToInt32(_reader["price"].ToString());
-                    course.Date = Convert.ToDateTime(_reader["date"].ToString());
+                    course.Date = _reader["date"].ToString();
+                    course.Url = _reader["url"].ToString();
                     list.Add(course);
                 }
                 

@@ -8,6 +8,26 @@
       d:DesignHeight="720" d:DesignWidth="1080"
       Title="RolesFrame">
 
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="TopBars" >
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="20,5,20,5"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#6228fc"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="#9772FB"/>
+        </Style>
+    </Page.Resources>
+
     <Grid Background="gray">
 
         <Border MinWidth="700" Background="White" Margin="0,0" VerticalAlignment="Top" MaxWidth="2160" 
@@ -28,12 +48,181 @@
                         <DropShadowEffect Color="#1C1678"/>
                     </TextBlock.Effect>
                 </TextBlock>
+                <Button Content="+Add Role" x:Name="AddRoleBtn" FontWeight="Bold" Height="33" HorizontalAlignment="Right" Margin="10" Click="OpenAddRoleMenu">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#6228fc" Padding="20,5,20,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#6228fc"/>
+                                    <Setter Property="Opacity" Value="0.9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <StackPanel x:Name="AddRoleMenu" Visibility="Visible">
+
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Role Name" Style="{StaticResource label}" Margin="0,0,63,0"/>
+                        <TextBox x:Name="InsertRoleName" Width="300" BorderBrush="#6228fc" BorderThickness="1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Role Description" Style="{StaticResource label}" Margin="0,0,10,0"/>
+                        <TextBox x:Name="InsertRoleDescription" Width="300" BorderBrush="#6228fc" BorderThickness="1"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Dapar" Margin="0,0,10,0" Style="{StaticResource label}"/>
+                        <ComboBox x:Name="insertDapar">
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="20"/>
+                            <ComboBoxItem Content="30"/>
+                            <ComboBoxItem Content="40"/>
+                            <ComboBoxItem Content="50"/>
+                            <ComboBoxItem Content="60"/>
+                            <ComboBoxItem Content="70"/>
+                            <ComboBoxItem Content="80"/>
+                            <ComboBoxItem Content="90"/>
+                        </ComboBox>
+                        <TextBlock Text="Profile" Margin="50,0,10,0" Style="{StaticResource label}"/>
+                        <ComboBox x:Name="insertProfile">
+                            <ComboBoxItem Content="21"/>
+                            <ComboBoxItem Content="24"/>
+                            <ComboBoxItem Content="25"/>
+                            <ComboBoxItem Content="45"/>
+                            <ComboBoxItem Content="64"/>
+                            <ComboBoxItem Content="72"/>
+                            <ComboBoxItem Content="82"/>
+                            <ComboBoxItem Content="97"/>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Margin="0,50,0,0">
+                        <TextBlock Text="yom ha-100:" HorizontalAlignment="Center" FontSize="25" Margin="0,0,0,20" Style="{StaticResource label}"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,50">
+                            <TextBlock Text="command" Margin="0,0,10,0" Style="{StaticResource label}"/>
+                            <ComboBox x:Name="insertCommand">
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                            </ComboBox>
+                            <TextBlock Text="teamwork" Margin="50,0,10,0" Style="{StaticResource label}"/>
+                            <ComboBox x:Name="insertTeamWork">
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                            </ComboBox>
+                            <TextBlock Text="attention" Margin="50,0,10,0" Style="{StaticResource label}"/>
+                            <ComboBox x:Name="insertAttentions">
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                            </ComboBox>
+                            <TextBlock Text="information proceion" Margin="50,0,10,0" Style="{StaticResource label}"/>
+                            <ComboBox x:Name="insertInformationProcession">
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                                <ComboBoxItem Content="4"/>
+                                <ComboBoxItem Content="5"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <Button HorizontalAlignment="Center" Content="Add Role" FontWeight="Bold" FontSize="35" 
+                        MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,35" Click="AddRole" >
+                        <Button.BorderBrush >
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                                <GradientStop Color="#6228fc" Offset="0" />
+                                <GradientStop Color="#1C1678" Offset=".5" />
+                            </LinearGradientBrush>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9772FB" Offset="1" />
+                                <GradientStop Color="White" Offset="0.3" />
+                                <GradientStop Color="White" Offset="0.7" />
+                                <GradientStop Color="#9772FB" Offset="0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Foreground>
+                            <LinearGradientBrush >
+                                <GradientStop Color="#8576FF" Offset="0.25" />
+                                <GradientStop Color="#1C1678" Offset="1.3" />
+                            </LinearGradientBrush>
+                        </Button.Foreground>
+                        <Button.Effect>
+                            <DropShadowEffect Color="DeepSkyBlue" BlurRadius="30" ShadowDepth="0"/>
+                        </Button.Effect>
+                    </Button>
+                    
+
+                </StackPanel>
+
                 <ScrollViewer>
-                    <DataGrid>
+                    <DataGrid x:Name="RolesList" AutoGenerateColumns="False" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Width="150" />
-                            <DataGridTextColumn Header="Description" Width="*"/>
-                            <DataGridTextColumn Header="Requirements" Width="*"/>
+                            <DataGridTextColumn Header="Name" Width="150" Binding="{Binding Path=Name}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Path=Description}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Dapar" Width="50" Binding="{Binding Path=MinDapar}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Profile" Width="50" Binding="{Binding Path=MinProfile}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Yom100Grades" Width="*" Binding="{Binding Path=Requiementtring}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </ScrollViewer>

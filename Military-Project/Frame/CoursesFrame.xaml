@@ -8,6 +8,15 @@
       d:DesignHeight="720" d:DesignWidth="1080"
       Title="CoursesFrame">
 
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="#9772FB"/>
+        </Style>
+    </Page.Resources>
+
     <Grid Background="gray">
         <Border MinWidth="700" Background="White" Margin="0" VerticalAlignment="Top" MaxWidth="2160" 
                 Padding="20" CornerRadius="0,0,30,30" >
@@ -27,14 +36,97 @@
                         <DropShadowEffect Color="#1C1678"/>
                     </TextBlock.Effect>
                 </TextBlock>
+
+
+
+                <Button Content="+Add Course" x:Name="OpenAddCourseMenuBtn" FontWeight="Bold" Height="33" HorizontalAlignment="Right" Margin="10" Click="OpenAddCourseMenu">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#6228fc" Padding="20,5,20,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#6228fc"/>
+                                    <Setter Property="Opacity" Value="0.9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <StackPanel x:Name="AddCourseMenu" Visibility="Visible">
+
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Course Name" Style="{StaticResource label}" Margin="0,0,60,0"/>
+                        <TextBox x:Name="insertName" Width="300" BorderBrush="#6228fc" BorderThickness="1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Course Description" Style="{StaticResource label}" Margin="0,0,10,0"/>
+                        <TextBox x:Name="insertDescription" Width="300" BorderBrush="#6228fc" BorderThickness="1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Course Price" Style="{StaticResource label}" Margin="0,0,70,0"/>
+                        <TextBox x:Name="insertPrice" Width="300" BorderBrush="#6228fc" BorderThickness="1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Course Date" Style="{StaticResource label}" Margin="0,0,72,0"/>
+                        <TextBox x:Name="insertDate" Width="300" BorderBrush="#6228fc" BorderThickness="1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Url" Style="{StaticResource label}" Margin="0,0,157,0"/>
+                        <TextBox x:Name="insertUrl" Width="300" BorderBrush="#6228fc" BorderThickness="1"/>
+                    </StackPanel>
+
+                    <Button HorizontalAlignment="Center" x:Name="AddCourseBtn" Content="Add Course" FontWeight="Bold" FontSize="35" 
+                            MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,35" Click="AddCourse" >
+                        <Button.BorderBrush >
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                                <GradientStop Color="#6228fc" Offset="0" />
+                                <GradientStop Color="#1C1678" Offset=".5" />
+                            </LinearGradientBrush>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9772FB" Offset="1" />
+                                <GradientStop Color="White" Offset="0.3" />
+                                <GradientStop Color="White" Offset="0.7" />
+                                <GradientStop Color="#9772FB" Offset="0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Foreground>
+                            <LinearGradientBrush >
+                                <GradientStop Color="#8576FF" Offset="0.25" />
+                                <GradientStop Color="#1C1678" Offset="1.3" />
+                            </LinearGradientBrush>
+                        </Button.Foreground>
+                        <Button.Effect>
+                            <DropShadowEffect Color="DeepSkyBlue" BlurRadius="30" ShadowDepth="0"/>
+                        </Button.Effect>
+                    </Button>
+
+                </StackPanel>
+
                 <ScrollViewer>
-                    <DataGrid>
+                    <DataGrid x:Name="CoursesList" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Width="100" />
-                            <DataGridTextColumn Header="Description" Width="*"/>
-                            <DataGridTextColumn Header="Price" Width="60"/>
-                            <DataGridTextColumn Header="Date" Width="100"/>
-                            <DataGridTextColumn Header="Url" Width="300"/>
+                            <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Path=Name}"/>
+                            <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Path=Description}"/>
+                            <DataGridTextColumn Header="Price" Width="60" Binding="{Binding Path=Price}"/>
+                            <DataGridTextColumn Header="Date" Width="100" Binding="{Binding Path=Date}"/>
+                            <DataGridTextColumn Header="Url" Width="300" Binding="{Binding Path=Url}"/>
                         </DataGrid.Columns>
 
                     </DataGrid>

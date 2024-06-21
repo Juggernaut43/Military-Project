@@ -28,10 +28,10 @@
                 </TextBlock>
 
                 <Border>
-                    <DataGrid>
+                    <DataGrid x:Name="Grades" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="aspect" Width="*"/>
-                            <DataGridTextColumn Header="grade" Width="*"/>
+                            <DataGridTextColumn Header="Aspect" Width="*" Binding="{Binding Key}"/>
+                            <DataGridTextColumn Header="Grade" Width="*" Binding="{Binding Value}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Border>

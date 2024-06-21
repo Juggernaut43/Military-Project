@@ -15,50 +15,40 @@ namespace ViewModel
 
 
         }
-        public RolesList SelectAll()
+        public int InsertRole(Role role)
         {
-            _command.CommandText = string.Format("SELECT * from {0}", _tableName);
-            RolesList lst = Select();
-            return lst;
+            try
+            {
+                _command.Connection = _connection;
+                _connection.Open();
+                _command.CommandText = $"INSERT INTO {_tableName}(name,description,minDapar,minProfile) " +
+                                       " output Inserted.id VALUES(@name,@description,@minDapar,@minProfile)";
+
+                
+                _command.Parameters.AddWithValue("@name", role.Name);
+                _command.Parameters.AddWithValue("@description", role.Description);
+                _command.Parameters.AddWithValue("@minDapar", role.MinDapar);
+                _command.Parameters.AddWithValue("@minProfile", role.MinProfile);
+                
+
+               return  (int)_command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                if (_connection.State == System.Data.ConnectionState.Open)
+                    _connection.Close();
+            }
+
         }
-        //public RolesList Select()
-        //{
-        //    RolesList list = new RolesList();
-        //    try
-        //    {
-        //        _command.Connection = _connection;
-        //        _connection.Open();
-        //        _reader = _command.ExecuteReader(); ;
-        //        Role role;
-        //        while (_reader.Read())
-        //        {
-        //            role = new Role();
-        //            role.Id = (int)_reader["id"];
-        //            RequirementsDB rdb = new RequirementsDB();
-        //            role.Requirements = rdb.SelectByRoleID(role.Id);
-        //            role.Name = (string)_reader["command"].ToString();
-        //            role.Description = (string)_reader["description"].ToString();
-        //            role.MinDapar = (int)_reader["minDapar"];
-        //            role.MinProfile = (int)_reader["minProfile"];
-        //            list.Add(role);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        System.Diagnostics.Debug.WriteLine(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        if (_reader != null)
-        //            _reader.Close();
-        //        if (_connection.State == System.Data.ConnectionState.Open)
-        //            _connection.Close();
-        //    }
-        //    return list;           
-        //}
         public RolesList RolesSelection(int dapar, int profile, int command, int teamWork, int attentions, int informationProcession)
         {
-            _command.CommandText = $"select Roles.*, Requirements.skill,Requirements.minGrade from Roles" +
+            
+            _command.CommandText = $"select Roles.*, Requirements.skill,Requirements.minGrade from Roles " +
                 $"right join" +
                 $"(select Roles.id from Roles " +
                 $"right join (select Count(Roles.id) as numberOfrequirementsMet, Roles.id as queryid " +
@@ -82,6 +72,12 @@ namespace ViewModel
             _command.CommandText = "select Roles.*, Requirements.skill, Requirements.minGrade from Roles left join Requirements on Requirements.roleId = Roles.id";
             RolesList lst = Select();
             return lst;
+        }
+        public Role SelectByName(string name)
+        {
+            _command.CommandText = string.Format(" SELECT * from {0} WHERE name = {1}", _tableName);
+            RolesList lst = Select();          
+            return lst.FirstOrDefault();
         }
         public RolesList Select()
         {
@@ -113,7 +109,7 @@ namespace ViewModel
 
                     requierment = new Requirement();
                     requierment.RoleId = role.Id;
-                    requierment.Skill = (Skills)(int)_reader["skill"];
+                    requierment.Skill = (Skills)((int)_reader["skill"]);
                     requierment.MinGrade = (int)_reader["minGrade"];
                     role.Requirements.Add(requierment);
                 }
@@ -132,5 +128,18 @@ namespace ViewModel
             return list;
         }
 
+        public void AddRoleWithRequierement(Role role)
+        {
+            int roleId = InsertRole(role);
+
+            RequirementsDB rdb = new RequirementsDB();
+
+            foreach (Requirement requirement in role.Requirements)
+            {
+                requirement.RoleId = roleId;
+                rdb.InsertRequirement(requirement);
+            }
+
+        }
     }
 }

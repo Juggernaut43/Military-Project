@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModel;
 
 namespace Military_Project.Frame
 {
@@ -27,7 +28,11 @@ namespace Military_Project.Frame
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            //todo add default value to proertie
+            var db = new RolesDB();
+            var role = db.RolesSelection(Convert.ToInt32(insertDapar.Text), Convert.ToInt32(insertProfile.Text), Convert.ToInt32(insertCommand.Text), Convert.ToInt32(insertTeamWork.Text), Convert.ToInt32(insertAttentions.Text), Convert.ToInt32(insertInformationProcession.Text));
+            var roleFrame = new RolesFrame(role);
+            NavigationService.Navigate(roleFrame);
         }
     }
 }

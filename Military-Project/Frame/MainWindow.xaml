@@ -181,16 +181,43 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                    
+                        <Button Content="Donate" x:Name="DonateBtn" Visibility="Visible" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0,0,0" Click="DonateBtn_Click">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="#6228fc" Padding="20,5,20,5">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#6228fc"/>
+                                            <Setter Property="Opacity" Value="0.9"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
                     </StackPanel>
 
-                    <Border x:Name="SpaceBlock" Width="70">
+                    <Border x:Name="SpaceBlock" Width="10">
                         
                     </Border>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 
-                        <Button Content="Sign up" x:Name="Sign_upBtn" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0" Click="Sign_upBtn_Click">
+                        <Button Content="Sign up" x:Name="Sign_upBtn" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="0" Click="Sign_upBtn_Click">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>
@@ -244,7 +271,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Logout" x:Name="LogoutBtn" Click="LogoutBtn_Click" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="5,0" Visibility="Visible">
+                        <Button Content="Logout" x:Name="LogoutBtn" Click="LogoutBtn_Click" VerticalAlignment="Center" FontSize="14" Foreground="White" Margin="0" Visibility="Visible">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Background" Value="Transparent"/>

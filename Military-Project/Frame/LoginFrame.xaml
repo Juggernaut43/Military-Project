@@ -50,6 +50,8 @@
                 <TextBlock Text="password" Style="{StaticResource text}"/>
                 <TextBox x:Name="password" Style="{StaticResource label}"/>
 
+                <TextBlock x:Name="erorMassege" Text="your id or password is not corect" HorizontalAlignment="Center" Foreground="Red" Visibility="Collapsed"/>
+                
                 <Button HorizontalAlignment="Center" Content="sign in" FontWeight="Bold" FontSize="35" 
                         MinWidth="600" MaxHeight="50" Padding="0,-6,0,0" BorderThickness="2" Margin="0,15,0,0" Click="LoginBtn_Click">
                     <Button.BorderBrush >

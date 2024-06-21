@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,10 @@ namespace Testing
         {
             var db = new RolesDB();
             var user = db.SelectALL();
+            int i = 1;
+
+            Skills a = Skills.Teamwork;
+            var l = a.ToString();
             
         }
     }

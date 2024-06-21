@@ -41,6 +41,8 @@ namespace Military_Project.Frame
         {
             if(password.Text == confirm.Text)
             {
+                erorMessage.Text = "";
+                erorMessage.Visibility = Visibility.Collapsed;
                 var db = new UsersDB();
                 var eitingUer = db.SelectByID(int.Parse(id.Text));
                 if (eitingUer == null)
@@ -53,15 +55,24 @@ namespace Military_Project.Frame
                     u.Birthday = birthday.Text;
 
                     db.InsertUser(u);
+                    erorMessage.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    //exeption
+                    erorMessage.Visibility= Visibility.Visible;
+                    erorMessage.Text += "person with this id registrated";
                 }
             }
             else
             {
-                //exeption
+                erorMessage.Visibility = Visibility.Visible;
+                erorMessage.Text = "confirm password is not corect ";
+                var db = new UsersDB();
+                var eitingUer = db.SelectByID(int.Parse(id.Text));
+                if (eitingUer != null)
+                {
+                    erorMessage.Text += "person with this id registrated";
+                }
             }
             
 

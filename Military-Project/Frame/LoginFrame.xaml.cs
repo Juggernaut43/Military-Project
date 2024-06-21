@@ -42,6 +42,8 @@ namespace Military_Project.Frame
             var user = db.SelectByID(int.Parse(id.Text));
             if (user != null)
             {
+                erorMassege.Text = "password is not corect";
+                erorMassege.Visibility = Visibility.Collapsed;
                 if (user.Password == password.Text) 
                 {
                     Sesion.User = user;
@@ -51,9 +53,14 @@ namespace Military_Project.Frame
                     }
                 }
                 else 
-                { 
-                    //exeption message 
+                {
+                    erorMassege.Visibility = Visibility.Visible;
                 }
+            }
+            else
+            {
+                erorMassege.Text = "this id is not corect";
+                erorMassege.Visibility = Visibility.Visible;
             }
 
         }

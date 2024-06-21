@@ -9,7 +9,7 @@ namespace ViewModel
 {
     public class ProfileDB : BaseDB
     {
-        public ProfileDB() : base("Users")
+        public ProfileDB() : base("Profiles")
         {
 
         }
@@ -19,11 +19,11 @@ namespace ViewModel
             ProfileList lst = Select();
             return lst;
         }
-        public ProfileList SelectByID(int id)
+        public Profile SelectByID(int id)
         {
-            _command.CommandText = string.Format("SELECT * from {0}  WHERE id = {1}", _tableName, id);
+            _command.CommandText = string.Format("SELECT * from {0}  WHERE userId = {1}", _tableName, id);
             ProfileList lst = Select();
-            return lst;
+            return lst.FirstOrDefault();
         }
 
 

@@ -23,10 +23,13 @@ namespace Military_Project.Frame
     {
         public MainWindow()
         {
+            //var re = Apiervice.TestCreditCard("123", "1234567812345678", 5, 2030);            
+            InitializeComponent();
             this.RolesButton.Visibility = Visibility.Collapsed;
             this.CoursesBtn.Visibility = Visibility.Collapsed;
             this.RoleSelectionBtn.Visibility = Visibility.Collapsed;
             this.ProfileBtn.Visibility = Visibility.Collapsed;
+            this.DonateBtn.Visibility = Visibility.Collapsed;
 
             this.LogoutBtn.Visibility = Visibility.Collapsed;
             this.SetingsBtn.Visibility = Visibility.Collapsed;
@@ -34,7 +37,6 @@ namespace Military_Project.Frame
             this.Sign_upBtn.Visibility = Visibility.Visible;
             this.Sign_inBtn.Visibility = Visibility.Visible;
             this.SpaceBlock.Width = 650;
-            InitializeComponent();
         }
 
         private void RolesBtn_Click(object sender, RoutedEventArgs e)
@@ -61,12 +63,17 @@ namespace Military_Project.Frame
         {
             this.myFrame.Navigate(new OwnerFrame());
         }
+        private void DonateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.myFrame.Navigate(new Donate());
+        }
         private void LogoutBtn_Click(object sender, RoutedEventArgs e)
         {
             this.RolesButton.Visibility = Visibility.Collapsed;
             this.CoursesBtn.Visibility = Visibility.Collapsed;
             this.RoleSelectionBtn.Visibility = Visibility.Collapsed;
             this.ProfileBtn.Visibility = Visibility.Collapsed;
+            this.DonateBtn.Visibility = Visibility.Collapsed;
 
             this.LogoutBtn.Visibility = Visibility.Collapsed;
             this.SetingsBtn.Visibility = Visibility.Collapsed;
@@ -110,15 +117,16 @@ namespace Military_Project.Frame
             this.CoursesBtn.Visibility = Visibility.Visible;
             this.RoleSelectionBtn.Visibility = Visibility.Visible;
             this.ProfileBtn.Visibility = Visibility.Visible;
+            this.DonateBtn.Visibility = Visibility.Visible;
 
             this.Sign_upBtn.Visibility = Visibility.Collapsed;
             this.Sign_inBtn.Visibility = Visibility.Collapsed;
             this.LogoutBtn.Visibility = Visibility.Visible;
-            this.SpaceBlock.Width = 340;
+            this.SpaceBlock.Width = 270;
             if (Sesion.User.IsAdmin)
             {
                 this.SetingsBtn.Visibility = Visibility.Visible;
-                this.SpaceBlock.Width = 250;
+                this.SpaceBlock.Width = 180;
             }
         }
         
@@ -129,8 +137,6 @@ namespace Military_Project.Frame
             p.RegistrationEvent += new EventHandler(LoginHappend);
             this.myFrame.Navigate(p);
         }
-
-        
 
         
     }
